@@ -151,7 +151,7 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
                 // When using @IdClass, you directly set the @Id fields on the entity itself.
                 newBudgetItem.setOperationalActivity(savedNewOpActivity);
                 newBudgetItem.setBudgetItem(originalBudgetItem.getBudgetItem()); // Retain original BudgetItem
-
+                newBudgetItem.setOrderItem(originalBudgetItem.getOrderItem());
                 // newBudgetItem.setCreateTime(LocalDateTime.now());
                 newBudgetItem.setMonthAmounts(new EnumMap<>(originalBudgetItem.getMonthAmounts()));
                 newBudgetItem.setExpenseType(originalBudgetItem.getExpenseType());
