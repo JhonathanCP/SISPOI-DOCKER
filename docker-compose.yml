@@ -56,9 +56,9 @@ services:
       - kafka
     mem_limit: 384m
 
-  nginx:
+  nginx-prod:
     image: nginx:stable-alpine
-    container_name: nginx
+    container_name: nginx-prod
     ports:
       - "80:80"
     volumes:
