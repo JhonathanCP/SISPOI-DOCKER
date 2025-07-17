@@ -1,0 +1,28 @@
+# application.yml
+spring:
+  mail:
+    host: smtp.office365.com
+    port: 587
+    username: gcpp.gpc05@essalud.gob.pe
+    password: zxcvqwer159A-
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  kafka:
+    consumer:
+      bootstrap-servers: kafka:9092
+      group-id: email-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    listener:
+      missing-topics-fatal: false
+
+# Kafka
+kafka:
+  consumer:
+    bootstrap-servers: kafka:9092
+    group-id: email-group
+    topic: email-topic

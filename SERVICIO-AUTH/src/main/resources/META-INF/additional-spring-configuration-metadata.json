@@ -1,0 +1,49 @@
+{
+  "properties": [
+    {
+      "name": "jwt.secret",
+      "type": "java.lang.String",
+      "description": "A description for 'jwt.secret'"
+    },
+    {
+      "name": "admin.username",
+      "type": "java.lang.String",
+      "description": "Admin username"
+    },
+    {
+      "name": "admin.password",
+      "type": "java.lang.String",
+      "description": "Admin password"
+    },
+    {
+      "name": "admin.email",
+      "type": "java.lang.String",
+      "description": "Admin email"
+    },
+    {
+      "name": "admin.ldap",
+      "type": "java.lang.Boolean",
+      "description": "Admin LDAP enabled"
+    },
+    {
+      "name": "roles",
+      "type": "java.lang.String",
+      "description": "Comma separated list of roles"
+    },
+    {
+      "name": "roles.descriptions",
+      "type": "java.lang.String",
+      "description": "Comma separated list of role descriptions"
+    },
+    {
+      "name": "auth.recaptcha.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable or disable reCAPTCHA validation"
+    },
+    {
+      "name": "recaptcha.secret",
+      "type": "java.lang.String",
+      "description": "Google reCAPTCHA secret key"
+    }
+  ]
+}
