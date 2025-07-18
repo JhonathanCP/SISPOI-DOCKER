@@ -30,4 +30,11 @@ public class OperationalActivityBudgetItemDTO {
 
     private ExpenseTypeDTO expenseType;
 
+    @NotNull
+    private FinancialFundDTO financialFund;
+
+    private Double estimation;
+
+    private Double proyection;
+
 }

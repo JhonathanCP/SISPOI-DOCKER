@@ -152,6 +152,9 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
                 newBudgetItem.setOperationalActivity(savedNewOpActivity);
                 newBudgetItem.setBudgetItem(originalBudgetItem.getBudgetItem()); // Retain original BudgetItem
                 newBudgetItem.setOrderItem(originalBudgetItem.getOrderItem());
+                newBudgetItem.setFinancialFund(originalBudgetItem.getFinancialFund());
+                newBudgetItem.setProyection(originalBudgetItem.getProyection());
+                newBudgetItem.setEstimation(originalBudgetItem.getEstimation());
                 // newBudgetItem.setCreateTime(LocalDateTime.now());
                 newBudgetItem.setMonthAmounts(new EnumMap<>(originalBudgetItem.getMonthAmounts()));
                 newBudgetItem.setExpenseType(originalBudgetItem.getExpenseType());

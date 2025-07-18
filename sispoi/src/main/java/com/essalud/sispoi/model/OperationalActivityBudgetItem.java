@@ -56,4 +56,12 @@ public class OperationalActivityBudgetItem {
     @JoinColumn (name = "id_expense_type", referencedColumnName = "idExpenseType", nullable = false)
     private ExpenseType expenseType;
 
+    @ManyToOne
+    @JoinColumn (name = "id_financial_fund", referencedColumnName = "ifFinancialFund", nullable = false)
+    private FinancialFund financialFund;
+
+    private Double estimation;
+
+    private Double proyection;
+
 }

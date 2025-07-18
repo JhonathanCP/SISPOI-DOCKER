@@ -24,6 +24,13 @@ public class FinancialFundDTO {
 
     @Size(max = 500)
     private String description;
+
+    @NotNull
+    private DependencyDTO dependency;
+
+    @NotNull
+    @Size(max = 10)
+    private String codFofi;
     
     private Boolean active = true;
 
