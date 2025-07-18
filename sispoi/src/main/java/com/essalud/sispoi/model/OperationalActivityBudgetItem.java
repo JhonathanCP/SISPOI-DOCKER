@@ -57,7 +57,7 @@ public class OperationalActivityBudgetItem {
     private ExpenseType expenseType;
 
     @ManyToOne
-    @JoinColumn (name = "id_financial_fund", referencedColumnName = "ifFinancialFund", nullable = false)
+    @JoinColumn (name = "id_financial_fund", referencedColumnName = "idFinancialFund", nullable = false)
     private FinancialFund financialFund;
 
     private Double estimation;
