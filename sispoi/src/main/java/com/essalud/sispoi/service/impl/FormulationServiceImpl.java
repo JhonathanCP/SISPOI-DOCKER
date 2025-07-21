@@ -4,6 +4,7 @@ import com.essalud.sispoi.exception.ModelNotFoundException;
 import com.essalud.sispoi.model.Dependency;
 import com.essalud.sispoi.model.ExecutedGoal;
 import com.essalud.sispoi.model.Formulation;
+import com.essalud.sispoi.model.FormulationState;
 import com.essalud.sispoi.model.FormulationSupportFile;
 import com.essalud.sispoi.model.Goal;
 import com.essalud.sispoi.model.OperationalActivity;
@@ -76,6 +77,22 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
 
         Formulation savedNewFormulation = repo.save(newFormulation);
 
+        // --- MODIFICACIONES A ORIGINAL FORMULATION ---
+        // Cambiar el estado de la formulación original
+        // Asumiendo que FormulationState tiene un constructor o método estático para crearlo
+        // O que puedes obtenerlo desde un repositorio si es una entidad gestionada.
+        // Aquí, se usa un 'new' para la demostración, ajusta si es necesario.
+        FormulationState newState = new FormulationState(); // Ajusta según tu clase FormulationState
+        newState.setIdFormulationState(4); // Establecer el ID de estado a 4
+        originalFormulation.setFormulationState(newState);
+
+        // Cambiar el estado 'active' de la formulación original a false
+        originalFormulation.setActive(false);
+
+        // Guardar los cambios en la formulación original
+        repo.save(originalFormulation);
+        // --- FIN DE LAS MODIFICACIONES ---
+
         // 2. Replicate FormulationSupportFile
         if (originalFormulation.getFormulationSupportFile() != null) {
             FormulationSupportFile originalSupportFile = originalFormulation.getFormulationSupportFile();
@@ -144,18 +161,15 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
             }
 
             // 5. Replicate OperationalActivityBudgetItems for each OperationalActivity
-            // Use the corrected method name for fetching based on the operational activity.
             List<OperationalActivityBudgetItem> originalBudgetItems = operationalActivityBudgetItemRepo.findByOperationalActivity(originalOpActivity);
             for (OperationalActivityBudgetItem originalBudgetItem : originalBudgetItems) {
                 OperationalActivityBudgetItem newBudgetItem = new OperationalActivityBudgetItem();
-                // When using @IdClass, you directly set the @Id fields on the entity itself.
                 newBudgetItem.setOperationalActivity(savedNewOpActivity);
-                newBudgetItem.setBudgetItem(originalBudgetItem.getBudgetItem()); // Retain original BudgetItem
+                newBudgetItem.setBudgetItem(originalBudgetItem.getBudgetItem());
                 newBudgetItem.setOrderItem(originalBudgetItem.getOrderItem());
                 newBudgetItem.setFinancialFund(originalBudgetItem.getFinancialFund());
                 newBudgetItem.setProyection(originalBudgetItem.getProyection());
                 newBudgetItem.setEstimation(originalBudgetItem.getEstimation());
-                // newBudgetItem.setCreateTime(LocalDateTime.now());
                 newBudgetItem.setMonthAmounts(new EnumMap<>(originalBudgetItem.getMonthAmounts()));
                 newBudgetItem.setExpenseType(originalBudgetItem.getExpenseType());
 
