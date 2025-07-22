@@ -42,7 +42,7 @@ public class OperationalActivityDTO {
     private StrategicActionDTO strategicAction;
 
     @NotNull
-    private FormulationDTO formulation;
+    private FormulationNoFileDTO formulation;
 
     @NotNull
     private FinancialFundDTO financialFund;
