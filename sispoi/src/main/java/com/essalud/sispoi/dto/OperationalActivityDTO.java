@@ -60,17 +60,17 @@ public class OperationalActivityDTO {
     @Size(max = 250)
     private String measurementUnit;
 
-    @JsonManagedReference
+    @JsonManagedReference("operationalActivity-goals")
     private List<GoalDTO> goals;
 
-    @JsonManagedReference
+    @JsonManagedReference("operationalActivity-executedGoals")
     private List<ExecutedGoalDTO> executedGoals;
 
     
-    @JsonManagedReference
+    @JsonManagedReference("operationalActivity-monthlyGoals")
     private List<MonthlyGoalDTO> monthlyGoals;
 
-    @JsonManagedReference
+    @JsonManagedReference("operationalActivity-executedMonthlyGoals")
     private List<ExecutedMonthlyGoalDTO> executedMonthlyGoals;
 
     @NotNull

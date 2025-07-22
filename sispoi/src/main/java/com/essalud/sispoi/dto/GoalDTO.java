@@ -23,10 +23,10 @@ public class GoalDTO {
 
     private Boolean active = true;
 
-    @JsonBackReference
+    @JsonBackReference("operationalActivity-goals")
     private OperationalActivityDTO operationalActivity;
 
-    @JsonBackReference
+    @JsonBackReference("activityDetail-goals")
     private ActivityDetailDTO activityDetail;
 
     @Min(1)

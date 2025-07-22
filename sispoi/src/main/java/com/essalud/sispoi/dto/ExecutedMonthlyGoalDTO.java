@@ -23,7 +23,7 @@ public class ExecutedMonthlyGoalDTO {
 
     private Boolean active = true;
 
-    @JsonBackReference
+    @JsonBackReference("operationalActivity-executedMonthlyGoals")
     private OperationalActivityDTO operationalActivity;
 
     @Min(1)

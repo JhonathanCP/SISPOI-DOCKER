@@ -41,10 +41,10 @@ public class ActivityDetailDTO {
 
     private ActivityFamilyDTO activityFamily;
 
-    @JsonManagedReference
+    @JsonManagedReference("activityDetail-goals")
     private List<GoalDTO> goals;
 
-    @JsonManagedReference
+    @JsonManagedReference("activityDetail-monthlyGoals")
     private List<MonthlyGoalDTO> monthlyGoals;
 
 }

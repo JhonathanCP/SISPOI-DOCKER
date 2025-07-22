@@ -937,3 +937,11 @@ INSERT INTO budget_item  (cod_po_fi, name,id_budget_category,id_budget_type) val
 ('2520252040','INTERESES PROCESALES',25,2),
 ('2520231000','PASAJES NACIONALES',25,2);
 
+INSERT INTO formulation_type (id_formulation_type, name, description)
+VALUES 
+    (1, 'OC', NULL),
+    (2, 'OD ACTIVIDADES DE GESTIÓN', NULL),
+    (3, 'OD PRESTACIONES DE SALUD', NULL),
+    (4, 'OD PRESTACIONES ECONOMICAS', NULL),
+    (5, 'OD PRESTACIONES SOCIALES', NULL),
+    (6, 'OD FONAFE', NULL);
