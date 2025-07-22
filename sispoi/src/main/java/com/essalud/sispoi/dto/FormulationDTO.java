@@ -35,4 +35,6 @@ public class FormulationDTO {
 
     private Integer quarter;
 
+    private FormulationTypeDTO formulationType;
+
 }

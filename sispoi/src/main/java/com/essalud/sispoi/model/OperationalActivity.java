@@ -2,6 +2,7 @@ package com.essalud.sispoi.model;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -80,6 +81,12 @@ public class OperationalActivity {
     @OneToMany(mappedBy = "operationalActivity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ExecutedGoal> executedGoals;
 
+    @OneToMany(mappedBy = "operationalActivity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MonthlyGoal> monthlyGoals;
+
+    @OneToMany(mappedBy = "operationalActivity", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ExecutedMonthlyGoal> executedMonthlyGoals;
+
     @ManyToOne
     @JoinColumn(name = "id_priority", nullable = false, foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_PRIORITY"))
     private Priority priority;
@@ -100,5 +107,9 @@ public class OperationalActivity {
     
     @Column(nullable = false)
     private Float services;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_activity_family", foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY__ACTIVITY_FAMILY"))
+    private ActivityFamily activityFamily;
 
 }

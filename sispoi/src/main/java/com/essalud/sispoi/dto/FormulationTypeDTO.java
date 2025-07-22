@@ -1,9 +1,6 @@
 package com.essalud.sispoi.dto;
 
 import java.time.LocalDateTime;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -16,10 +13,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true )
-public class ActivityDetailDTO {
+public class FormulationTypeDTO {
 
     @EqualsAndHashCode.Include
-    private Integer idActivityDetail;
+    private Integer idFormulationType;
 
     @NotNull
     @Size(max = 500)
@@ -30,21 +27,6 @@ public class ActivityDetailDTO {
     
     private Boolean active = true;
 
-    private Boolean head;
-
-    @NotNull
-    private StrategicActionDTO strategicAction;
-
     private LocalDateTime createTime;
-
-    private FormulationTypeDTO formulationType;
-
-    private ActivityFamilyDTO activityFamily;
-
-    @JsonManagedReference
-    private List<GoalDTO> goals;
-
-    @JsonManagedReference
-    private List<MonthlyGoalDTO> monthlyGoals;
 
 }

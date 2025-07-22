@@ -24,7 +24,6 @@ public class ExecutedGoalDTO {
     private Boolean active = true;
 
     @JsonBackReference
-    @NotNull
     private OperationalActivityDTO operationalActivity;
 
     @Min(1)

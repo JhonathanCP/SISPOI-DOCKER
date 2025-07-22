@@ -1,12 +1,15 @@
 package com.essalud.sispoi.model;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -15,6 +18,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -38,10 +42,6 @@ public class ActivityDetail {
     @Column(nullable = false, columnDefinition = "boolean default true")
     private Boolean active;
 
-    @ManyToOne
-    @JoinColumn(name = "id_dependency_type", nullable = false, foreignKey = @ForeignKey(name = "FK_ACTIVITY_DETAIL_DEPENDENCY_TYPE"))
-    private DependencyType dependencyType;
-
     private Boolean head;
 
     @ManyToOne
@@ -55,5 +55,19 @@ public class ActivityDetail {
     protected void onCreate() {
         this.createTime = LocalDateTime.now();
     }
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_formulation_type", foreignKey = @ForeignKey(name = "FK_FORMULATION_FORMULATION_TYPE"))
+    private FormulationType formulationType;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_activity_family", foreignKey = @ForeignKey(name = "FK_ACTIVITY_DETAIL_ACTIVITY_FAMILY"))
+    private ActivityFamily activityFamily;
+
+    @OneToMany(mappedBy = "activityDetail", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Goal> goals;
+
+    @OneToMany(mappedBy = "activityDetail", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MonthlyGoal> monthlyGoals;
 
 }

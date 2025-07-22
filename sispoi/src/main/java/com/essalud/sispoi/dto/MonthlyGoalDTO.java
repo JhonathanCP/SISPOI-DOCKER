@@ -16,10 +16,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class GoalDTO {
+public class MonthlyGoalDTO {
 
     @EqualsAndHashCode.Include
-    private Integer idGoal;
+    private Integer idMonthlyGoal;
 
     private Boolean active = true;
 
@@ -30,7 +30,7 @@ public class GoalDTO {
     private ActivityDetailDTO activityDetail;
 
     @Min(1)
-    @Max(4)
+    @Max(12)
     @NotNull
     private Integer goalOrder;
 

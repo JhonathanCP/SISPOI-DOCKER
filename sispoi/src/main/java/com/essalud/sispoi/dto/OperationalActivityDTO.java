@@ -66,6 +66,13 @@ public class OperationalActivityDTO {
     @JsonManagedReference
     private List<ExecutedGoalDTO> executedGoals;
 
+    
+    @JsonManagedReference
+    private List<MonthlyGoalDTO> monthlyGoals;
+
+    @JsonManagedReference
+    private List<ExecutedMonthlyGoalDTO> executedMonthlyGoals;
+
     @NotNull
     private PriorityDTO priority;
 
@@ -79,5 +86,7 @@ public class OperationalActivityDTO {
     
     @NotNull
     private Float services;
+
+    private ActivityFamilyDTO activityFamily;
 
 }

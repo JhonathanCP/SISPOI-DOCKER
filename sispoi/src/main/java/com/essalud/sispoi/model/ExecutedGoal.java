@@ -35,7 +35,7 @@ public class ExecutedGoal {
     private Boolean active;
 
     @ManyToOne
-    @JoinColumn(name = "id_operational_activity", nullable = false, foreignKey = @ForeignKey(name = "FK_EXECUTED_META_OPERATIONAL_ACTIVITY"))
+    @JoinColumn(name = "id_operational_activity", foreignKey = @ForeignKey(name = "FK_EXECUTED_META_OPERATIONAL_ACTIVITY"))
     private OperationalActivity operationalActivity;
 
     @Min(1)

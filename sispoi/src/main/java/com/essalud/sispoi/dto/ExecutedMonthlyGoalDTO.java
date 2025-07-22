@@ -16,21 +16,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class GoalDTO {
+public class ExecutedMonthlyGoalDTO {
 
     @EqualsAndHashCode.Include
-    private Integer idGoal;
+    private Integer idExecutedMonthlyGoal;
 
     private Boolean active = true;
 
     @JsonBackReference
     private OperationalActivityDTO operationalActivity;
 
-    @JsonBackReference
-    private ActivityDetailDTO activityDetail;
-
     @Min(1)
-    @Max(4)
+    @Max(12)
     @NotNull
     private Integer goalOrder;
 

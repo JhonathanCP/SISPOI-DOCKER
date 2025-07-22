@@ -3,16 +3,20 @@ package com.essalud.sispoi.service.impl;
 import com.essalud.sispoi.exception.ModelNotFoundException;
 import com.essalud.sispoi.model.Dependency;
 import com.essalud.sispoi.model.ExecutedGoal;
+import com.essalud.sispoi.model.ExecutedMonthlyGoal;
 import com.essalud.sispoi.model.Formulation;
 import com.essalud.sispoi.model.FormulationState;
 import com.essalud.sispoi.model.FormulationSupportFile;
 import com.essalud.sispoi.model.Goal;
+import com.essalud.sispoi.model.MonthlyGoal;
 import com.essalud.sispoi.model.OperationalActivity;
 import com.essalud.sispoi.model.OperationalActivityBudgetItem;
 import com.essalud.sispoi.repo.IExecutedGoalRepo;
+import com.essalud.sispoi.repo.IExecutedMonthlyGoalRepo;
 import com.essalud.sispoi.repo.IFormulationRepo;
 import com.essalud.sispoi.repo.IFormulationSupportFileRepo;
 import com.essalud.sispoi.repo.IGoalRepo;
+import com.essalud.sispoi.repo.IMonthlyGoalRepo;
 import com.essalud.sispoi.repo.IOperationalActivityBudgetItemRepo;
 import com.essalud.sispoi.repo.IOperationalActivityRepo;
 import com.essalud.sispoi.repo._IGenericRepo;
@@ -47,6 +51,12 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
     private IExecutedGoalRepo executedGoalRepo;
 
     @Autowired
+    private IMonthlyGoalRepo monthlyGoalRepo;
+
+    @Autowired
+    private IExecutedMonthlyGoalRepo executedMonthlyGoalRepo;
+
+    @Autowired
     private IOperationalActivityBudgetItemRepo operationalActivityBudgetItemRepo;
 
     @Override
@@ -74,6 +84,7 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
         newFormulation.setYear(originalFormulation.getYear());
         newFormulation.setModification(originalFormulation.getModification() + 1);
         newFormulation.setQuarter(newQuarter);
+        newFormulation.setFormulationType(originalFormulation.getFormulationType()); // Assuming FormulationType is a field in Formulation
 
         Formulation savedNewFormulation = repo.save(newFormulation);
 
@@ -132,6 +143,7 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
             newOpActivity.setRemuneration(originalOpActivity.getRemuneration());
             newOpActivity.setServices(originalOpActivity.getServices());
             newOpActivity.setCreateTime(LocalDateTime.now());
+            newOpActivity.setActivityFamily(originalOpActivity.getActivityFamily());
 
             OperationalActivity savedNewOpActivity = operationalActivityRepo.save(newOpActivity);
             newOperationalActivities.add(savedNewOpActivity);
@@ -158,6 +170,30 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
                 newExecutedGoal.setValue(originalExecutedGoal.getValue());
                 newExecutedGoal.setCreateTime(LocalDateTime.now());
                 executedGoalRepo.save(newExecutedGoal);
+            }
+
+            // 4.C Replicate MonthlyGoals for each OperationalActivity
+            List<MonthlyGoal> originalMonthlyGoals = monthlyGoalRepo.findByOperationalActivity(originalOpActivity);
+            for (MonthlyGoal originalMonthlyGoal : originalMonthlyGoals) {
+                MonthlyGoal newMonthlyGoal = new MonthlyGoal();
+                newMonthlyGoal.setActive(originalMonthlyGoal.getActive());
+                newMonthlyGoal.setOperationalActivity(savedNewOpActivity);
+                newMonthlyGoal.setGoalOrder(originalMonthlyGoal.getGoalOrder());
+                newMonthlyGoal.setValue(originalMonthlyGoal.getValue());
+                newMonthlyGoal.setCreateTime(LocalDateTime.now());
+                monthlyGoalRepo.save(newMonthlyGoal);
+            }
+
+            // 4.D Replicate ExecutedMonthlyGoals for each OperationalActivity
+            List<ExecutedMonthlyGoal> originalExecutedMonthlyGoals = executedMonthlyGoalRepo.findByOperationalActivity(originalOpActivity);
+            for (ExecutedMonthlyGoal originalExecutedMonthlyGoal : originalExecutedMonthlyGoals) {
+                ExecutedMonthlyGoal newExecutedMonthlyGoal = new ExecutedMonthlyGoal();
+                newExecutedMonthlyGoal.setActive(originalExecutedMonthlyGoal.getActive());
+                newExecutedMonthlyGoal.setOperationalActivity(savedNewOpActivity);
+                newExecutedMonthlyGoal.setGoalOrder(originalExecutedMonthlyGoal.getGoalOrder());
+                newExecutedMonthlyGoal.setValue(originalExecutedMonthlyGoal.getValue());
+                newExecutedMonthlyGoal.setCreateTime(LocalDateTime.now());
+                executedMonthlyGoalRepo.save(newExecutedMonthlyGoal);
             }
 
             // 5. Replicate OperationalActivityBudgetItems for each OperationalActivity

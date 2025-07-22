@@ -24,26 +24,26 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Goal {
+public class MonthlyGoal {
 
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idGoal;
+    private Integer idMonthlyGoal;
     
     @Column(nullable = false, columnDefinition = "boolean default true")
     private Boolean active;
 
     @ManyToOne
-    @JoinColumn(name = "id_operational_activity", foreignKey = @ForeignKey(name = "FK_META_OPERATIONAL_ACTIVITY"))
+    @JoinColumn(name = "id_operational_activity", foreignKey = @ForeignKey(name = "FK_MONTHLY_META_OPERATIONAL_ACTIVITY"))
     private OperationalActivity operationalActivity;
 
     @ManyToOne
-    @JoinColumn(name = "id_activity_detail", foreignKey = @ForeignKey(name = "FK_META_ACTIVITY_DETAIL"))
+    @JoinColumn(name = "id_activity_detail", foreignKey = @ForeignKey(name = "FK_MONTHLY_META_ACTIVITY_DETAIL"))
     private ActivityDetail activityDetail;
 
     @Min(1)
-    @Max(4)
+    @Max(12)
     @Column(nullable = false)
     private Integer goalOrder;
 
