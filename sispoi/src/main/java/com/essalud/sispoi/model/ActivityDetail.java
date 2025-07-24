@@ -55,6 +55,9 @@ public class ActivityDetail {
     protected void onCreate() {
         this.createTime = LocalDateTime.now();
     }
+
+    @Column(length = 250)
+    private String measurementUnit;
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_formulation_type", foreignKey = @ForeignKey(name = "FK_FORMULATION_FORMULATION_TYPE"))

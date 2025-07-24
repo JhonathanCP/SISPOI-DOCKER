@@ -37,6 +37,9 @@ public class ActivityDetailDTO {
 
     private LocalDateTime createTime;
 
+    @Size(max = 250)
+    private String measurementUnit;
+
     private FormulationTypeDTO formulationType;
 
     private ActivityFamilyDTO activityFamily;

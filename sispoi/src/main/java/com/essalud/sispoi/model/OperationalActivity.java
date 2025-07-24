@@ -69,10 +69,10 @@ public class OperationalActivity {
     private CostCenter costCenter;
 
     @ManyToOne
-    @JoinColumn(name = "id_measurement_type", nullable = false, foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_MEASUREMENT_TYPE"))
+    @JoinColumn(name = "id_measurement_type", foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_MEASUREMENT_TYPE"))
     private MeasurementType measurementType;
 
-    @Column(length = 250, nullable = false)
+    @Column(length = 250)
     private String measurementUnit;
 
     @OneToMany(mappedBy = "operationalActivity", cascade = CascadeType.ALL, orphanRemoval = true)

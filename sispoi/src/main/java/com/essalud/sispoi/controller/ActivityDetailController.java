@@ -68,7 +68,8 @@ public class ActivityDetailController {
             throw new ModelNotFoundException("ID DOES NOT EXIST: " + dto.getIdActivityDetail());
         }
         dto.setCreateTime(obj.getCreateTime());
-        return new ResponseEntity<>(service.update(mapper.map(dto, ActivityDetail.class)), HttpStatus.OK);
+        service.update(mapper.map(dto, ActivityDetail.class));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

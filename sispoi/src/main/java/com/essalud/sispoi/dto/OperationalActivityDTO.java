@@ -53,10 +53,8 @@ public class OperationalActivityDTO {
     @NotNull
     private CostCenterDTO costCenter;
 
-    @NotNull
     private MeasurementTypeDTO measurementType;
 
-    @NotNull
     @Size(max = 250)
     private String measurementUnit;
 

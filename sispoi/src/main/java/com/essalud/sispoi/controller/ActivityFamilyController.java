@@ -67,6 +67,7 @@ public class ActivityFamilyController {
         if(obj == null){
             throw new ModelNotFoundException("ID DOES NOT EXIST: " + dto.getIdActivityFamily());
         }
+        service.update(mapper.map(dto, ActivityFamily.class));
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
