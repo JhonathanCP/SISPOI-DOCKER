@@ -35,4 +35,6 @@ public class FormulationNoFileDTO {
 
     private FormulationTypeDTO formulationType;
 
+    private Double budget;
+
 }

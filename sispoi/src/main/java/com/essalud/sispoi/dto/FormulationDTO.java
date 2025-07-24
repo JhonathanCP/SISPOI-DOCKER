@@ -37,4 +37,6 @@ public class FormulationDTO {
 
     private FormulationTypeDTO formulationType;
 
+    private Double budget;
+
 }

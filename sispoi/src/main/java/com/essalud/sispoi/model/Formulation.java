@@ -72,4 +72,6 @@ public class Formulation {
     @JoinColumn(name = "id_formulation_type", foreignKey = @ForeignKey(name = "FK_FORMULATION_FORMULATION_TYPE"))
     private FormulationType formulationType;
 
+    private Double budget;
+
 }

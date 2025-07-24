@@ -85,6 +85,7 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
         newFormulation.setModification(originalFormulation.getModification() + 1);
         newFormulation.setQuarter(newQuarter);
         newFormulation.setFormulationType(originalFormulation.getFormulationType()); // Assuming FormulationType is a field in Formulation
+        newFormulation.setBudget(originalFormulation.getBudget()); // Assuming budget is a field in Formulation
 
         Formulation savedNewFormulation = repo.save(newFormulation);
 
