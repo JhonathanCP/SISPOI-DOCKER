@@ -1,7 +1,5 @@
 package com.essalud.sispoi.dto;
 
-import java.time.LocalDateTime;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.validation.constraints.Max;
@@ -36,7 +34,5 @@ public class GoalDTO {
 
     @NotNull
     private Double value;
-
-    private LocalDateTime createTime;
 
 }

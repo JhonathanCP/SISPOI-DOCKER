@@ -157,7 +157,6 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
                 newGoal.setOperationalActivity(savedNewOpActivity);
                 newGoal.setGoalOrder(originalGoal.getGoalOrder());
                 newGoal.setValue(originalGoal.getValue());
-                newGoal.setCreateTime(LocalDateTime.now());
                 goalRepo.save(newGoal);
             }
 
@@ -169,7 +168,6 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
                 newExecutedGoal.setOperationalActivity(savedNewOpActivity);
                 newExecutedGoal.setGoalOrder(originalExecutedGoal.getGoalOrder());
                 newExecutedGoal.setValue(originalExecutedGoal.getValue());
-                newExecutedGoal.setCreateTime(LocalDateTime.now());
                 executedGoalRepo.save(newExecutedGoal);
             }
 
@@ -181,7 +179,6 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
                 newMonthlyGoal.setOperationalActivity(savedNewOpActivity);
                 newMonthlyGoal.setGoalOrder(originalMonthlyGoal.getGoalOrder());
                 newMonthlyGoal.setValue(originalMonthlyGoal.getValue());
-                newMonthlyGoal.setCreateTime(LocalDateTime.now());
                 monthlyGoalRepo.save(newMonthlyGoal);
             }
 
@@ -193,7 +190,6 @@ public class FormulationServiceImpl extends _CRUDImpl<Formulation, Integer> impl
                 newExecutedMonthlyGoal.setOperationalActivity(savedNewOpActivity);
                 newExecutedMonthlyGoal.setGoalOrder(originalExecutedMonthlyGoal.getGoalOrder());
                 newExecutedMonthlyGoal.setValue(originalExecutedMonthlyGoal.getValue());
-                newExecutedMonthlyGoal.setCreateTime(LocalDateTime.now());
                 executedMonthlyGoalRepo.save(newExecutedMonthlyGoal);
             }
 

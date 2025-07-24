@@ -1,6 +1,5 @@
 package com.essalud.sispoi.dto;
 
-import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -33,7 +32,5 @@ public class ExecutedMonthlyGoalDTO {
 
     @NotNull
     private Double value;
-
-    private LocalDateTime createTime;
 
 }

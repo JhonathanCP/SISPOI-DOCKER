@@ -7,7 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.PrePersist;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
@@ -16,7 +15,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -45,13 +43,5 @@ public class ExecutedGoal {
 
     @Column(nullable = false)
     private Double value;
-
-    @Column(nullable = false, columnDefinition = "timestamp default now()")
-    private LocalDateTime createTime;
-
-    @PrePersist
-    protected void onCreate() {
-        this.createTime = LocalDateTime.now();
-    }
 
 }
