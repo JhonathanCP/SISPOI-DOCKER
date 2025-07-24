@@ -50,4 +50,6 @@ public class ActivityDetailDTO {
     @JsonManagedReference("activityDetail-monthlyGoals")
     private List<MonthlyGoalDTO> monthlyGoals;
 
+    private Integer year;
+
 }

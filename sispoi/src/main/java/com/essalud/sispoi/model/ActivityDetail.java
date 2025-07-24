@@ -11,6 +11,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -72,5 +74,10 @@ public class ActivityDetail {
 
     @OneToMany(mappedBy = "activityDetail", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MonthlyGoal> monthlyGoals;
+
+    @Min(2000)
+    @Max(2200)
+    @Column(nullable = false)
+    private Integer year;
 
 }
