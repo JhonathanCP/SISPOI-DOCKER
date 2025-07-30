@@ -2,11 +2,9 @@ package com.essalud.sispoi.service.impl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -17,7 +15,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 import com.essalud.sispoi.dto.OcR1ReportDTO;
-import com.essalud.sispoi.repo.IOcR1ReportRepo;
+import com.essalud.sispoi.service.IOcR1Service;
 import com.essalud.sispoi.service.IReportService;
 
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -29,7 +27,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 public class ReportServiceImpl implements IReportService{
 
     @Autowired
-    private IOcR1ReportRepo ocR1ReportRepo;
+    private IOcR1Service ocR1Service;
 
     @Override
     public byte[] generateReport_oc_r1(String format, Integer dependencyId, Integer year, Integer modification) throws Exception {
@@ -46,35 +44,7 @@ public class ReportServiceImpl implements IReportService{
 
     @Override
     public List<OcR1ReportDTO> getOcR1Data(Integer dependencyId, Integer year, Integer modification) {
-        List<Object[]> results = ocR1ReportRepo.getOcR1Report(dependencyId, year, modification);
-        
-        return results.stream().map(row -> {
-            OcR1ReportDTO dto = new OcR1ReportDTO();
-            dto.setCodOe(getString(row[0]));
-            dto.setOe(getString(row[1]));
-            dto.setCodAe(getString(row[2]));
-            dto.setAe(getString(row[3]));
-            dto.setCodCg(getString(row[4]));
-            dto.setCg(getString(row[5]));
-            dto.setCodCc(getString(row[6]));
-            dto.setCc(getString(row[7]));
-            dto.setCodFf(getString(row[8]));
-            dto.setFf(getString(row[9]));
-            dto.setCodAo(getString(row[10]));
-            dto.setAo(getString(row[11]));
-            dto.setMu(getString(row[12]));
-            dto.setI(getBigDecimal(row[13]));
-            dto.setIi(getBigDecimal(row[14]));
-            dto.setIii(getBigDecimal(row[15]));
-            dto.setIv(getBigDecimal(row[16]));
-            dto.setTm(getBigDecimal(row[17]));
-            dto.setRem(getBigDecimal(row[18]));
-            dto.setBie(getBigDecimal(row[19]));
-            dto.setServ(getBigDecimal(row[20]));
-            dto.setTO(getBigDecimal(row[21]));
-            dto.setDa(getString(row[22]));
-            return dto;
-        }).collect(Collectors.toList());
+        return ocR1Service.getOcR1Data(dependencyId, year, modification);
     }
 
     // Método legacy para PDF con JasperReports
@@ -147,16 +117,5 @@ public class ReportServiceImpl implements IReportService{
         workbook.close();
 
         return outputStream.toByteArray();
-    }
-
-    private String getString(Object value) {
-        return value != null ? value.toString() : "";
-    }
-
-    private BigDecimal getBigDecimal(Object value) {
-        if (value == null) return BigDecimal.ZERO;
-        if (value instanceof BigDecimal) return (BigDecimal) value;
-        if (value instanceof Number) return BigDecimal.valueOf(((Number) value).doubleValue());
-        return BigDecimal.ZERO;
     }
 }
