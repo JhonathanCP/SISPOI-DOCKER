@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -47,19 +48,48 @@ public class ReportServiceImpl implements IReportService{
         return ocR1Service.getOcR1Data(dependencyId, year, modification);
     }
 
-    // Método legacy para PDF con JasperReports
+    // Método actualizado para usar la plantilla Jasper con datos reales
     private byte[] generatePdfReport(Integer dependencyId, Integer year, Integer modification) throws Exception {
-        byte[] data = null;
+        // Obtener los datos del procedimiento almacenado
+        List<OcR1ReportDTO> data = getOcR1Data(dependencyId, year, modification);
+        
+        // Convertir a formato compatible con JasperReports
+        List<Map<String, Object>> jasperData = data.stream().map(item -> {
+            Map<String, Object> row = new HashMap<>();
+            // Mapear campos según la plantilla Jasper
+            row.put("d_oe", item.getOe());                    // Objetivo estratégico
+            row.put("d_ae", item.getAe());                    // Acción estratégica  
+            row.put("d_cg", item.getCg());                    // Centro gestor
+            row.put("d_cc", item.getCc());                    // Centro de costos
+            row.put("d_ff", item.getFf());                    // Fondo financiero
+            row.put("d_ao", item.getAo());                    // Actividad operativa
+            row.put("c_ao", item.getDa());                    // Detalle de actividad
+            row.put("mu", item.getMu());                      // Unidad de medida
+            row.put("i", item.getI());                        // Meta trimestre I
+            row.put("ii", item.getIi());                      // Meta trimestre II
+            row.put("iii", item.getIii());                    // Meta trimestre III
+            row.put("iv", item.getIv());                      // Meta trimestre IV
+            row.put("rem", item.getRem());                    // Remuneración
+            row.put("bie", item.getBie());                    // Bienes
+            row.put("serv", item.getServ());                  // Servicios
+            row.put("total", item.getTO());                   // Total
+            return row;
+        }).collect(Collectors.toList());
 
+        // Parámetros para la plantilla
         Map<String, Object> params = new HashMap<>();
-        params.put("oc", "TEST");
-        params.put("anio", year);
+        params.put("oc", "Reporte OC-R1");                   // Título del reporte
+        params.put("anio", year);                            // Año del reporte
 
+        // Generar el reporte PDF
         File file = new ClassPathResource("/reports/oc_r1.jasper").getFile();
-        JasperPrint print = JasperFillManager.fillReport(file.getPath(), params, new JRBeanCollectionDataSource(null));
-        data = JasperExportManager.exportReportToPdf(print);
-
-        return data;
+        JasperPrint print = JasperFillManager.fillReport(
+            file.getPath(), 
+            params, 
+            new JRBeanCollectionDataSource(jasperData)
+        );
+        
+        return JasperExportManager.exportReportToPdf(print);
     }
 
     private byte[] generateExcelReport(List<OcR1ReportDTO> data) throws Exception {
