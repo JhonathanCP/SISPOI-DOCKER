@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+              name="oc_r2_clean" 
+              pageWidth="842" 
+              pageHeight="595" 
+              orientation="Landscape" 
+              columnWidth="807" 
+              leftMargin="15" 
+              rightMargin="15" 
+              topMargin="15" 
+              bottomMargin="15">
+
+    <parameter name="oc" class="java.lang.String"/>
+    <parameter name="anio" class="java.lang.Integer"/>
+
+    <field name="oe" class="java.lang.String"/>
+    <field name="d_oe" class="java.lang.String"/>
+    <field name="ae" class="java.lang.String"/>
+    <field name="d_ae" class="java.lang.String"/>
+    <field name="cg" class="java.lang.String"/>
+    <field name="d_cg" class="java.lang.String"/>
+    <field name="cc" class="java.lang.String"/>
+    <field name="d_cc" class="java.lang.String"/>
+    <field name="ff" class="java.lang.String"/>
+    <field name="d_ff" class="java.lang.String"/>
+    <field name="ao" class="java.lang.String"/>
+    <field name="d_ao" class="java.lang.String"/>
+    <field name="mu" class="java.lang.String"/>
+    <field name="i" class="java.lang.Double"/>
+    <field name="ii" class="java.lang.Double"/>
+    <field name="iii" class="java.lang.Double"/>
+    <field name="iv" class="java.lang.Double"/>
+    <field name="tm" class="java.lang.Double"/>
+    <field name="rem" class="java.lang.Double"/>
+    <field name="bie" class="java.lang.Double"/>
+    <field name="serv" class="java.lang.Double"/>
+    <field name="tp" class="java.lang.Double"/>
+    <field name="c_ao" class="java.lang.String"/>
+
+    <title>
+        <band height="107" splitType="Stretch">
+            <!-- Header azul principal -->
+            <frame>
+                <reportElement x="0" y="0" width="807" height="66" mode="Opaque" forecolor="#00529B" backcolor="#00529B"/>
+                <staticText>
+                    <reportElement x="0" y="0" width="645" height="66" forecolor="#FFFFFF"/>
+                    <textElement verticalAlignment="Bottom">
+                        <font fontName="Arial" size="30" isBold="true"/>
+                    </textElement>
+                    <text><![CDATA[Detalle de actividades]]></text>
+                </staticText>
+                <!-- Logo en esquina inferior derecha -->
+                <image scaleImage="RetainShape" hAlign="Right" vAlign="Bottom">
+                    <reportElement x="680" y="30" width="120" height="30"/>
+                    <imageExpression><![CDATA["classpath:assets/logo_essalud_white.png"]]></imageExpression>
+                </image>
+            </frame>
+            <frame>
+                <reportElement mode="Opaque" x="0" y="70" width="807" height="31" forecolor="#FFFFFF" backcolor="#4A7AC7"/>
+                <textField>
+                    <reportElement x="657" y="10" width="144" height="20" forecolor="#FFFFFF"/>
+                    <textElement textAlignment="Right">
+                        <font size="12"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement x="0" y="0" width="500" height="31" forecolor="#FFFFFF"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="12"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$P{oc} + "-" + $P{anio}]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="40">
+            <!-- COD O.E. -->
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="0" width="45" height="40" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[COD O.E.]]></text>
+            </staticText>
+            
+            <!-- COD A.E. -->
+            <staticText>
+                <reportElement mode="Opaque" x="45" y="0" width="45" height="40" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[COD A.E.]]></text>
+            </staticText>
+            
+            <!-- COD A.O. -->
+            <staticText>
+                <reportElement mode="Opaque" x="90" y="0" width="45" height="40" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[COD A.O.]]></text>
+            </staticText>
+            
+            <!-- Actividad operativa -->
+            <staticText>
+                <reportElement mode="Opaque" x="135" y="0" width="160" height="40" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Actividad operativa]]></text>
+            </staticText>
+            
+            <!-- Unidad de medida -->
+            <staticText>
+                <reportElement mode="Opaque" x="295" y="0" width="80" height="40" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Unidad de medida]]></text>
+            </staticText>
+            
+            <!-- Meta trimestral (header) -->
+            <staticText>
+                <reportElement mode="Opaque" x="375" y="0" width="180" height="20" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Meta trimestral]]></text>
+            </staticText>
+            
+            <!-- Presupuesto (S/) (header) -->
+            <staticText>
+                <reportElement mode="Opaque" x="555" y="0" width="165" height="20" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Presupuesto (S/)]]></text>
+            </staticText>
+            
+            <!-- Detalle de la actividad -->
+            <staticText>
+                <reportElement mode="Opaque" x="720" y="0" width="86" height="40" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Detalle de la actividad]]></text>
+            </staticText>
+            
+            <!-- I -->
+            <staticText>
+                <reportElement mode="Opaque" x="375" y="20" width="35" height="20" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[I]]></text>
+            </staticText>
+            
+            <!-- II -->
+            <staticText>
+                <reportElement mode="Opaque" x="410" y="20" width="35" height="20" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[II]]></text>
+            </staticText>
+            
+            <!-- III -->
+            <staticText>
+                <reportElement mode="Opaque" x="445" y="20" width="35" height="20" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[III]]></text>
+            </staticText>
+            
+            <!-- IV -->
+            <staticText>
+                <reportElement mode="Opaque" x="480" y="20" width="35" height="20" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[IV]]></text>
+            </staticText>
+            
+            <!-- Total (meta) -->
+            <staticText>
+                <reportElement mode="Opaque" x="515" y="20" width="40" height="20" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Total]]></text>
+            </staticText>
+            
+            <!-- Rem. -->
+            <staticText>
+                <reportElement mode="Opaque" x="555" y="20" width="40" height="20" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Rem.]]></text>
+            </staticText>
+            
+            <!-- Bie. -->
+            <staticText>
+                <reportElement mode="Opaque" x="595" y="20" width="40" height="20" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Bie.]]></text>
+            </staticText>
+            
+            <!-- Serv. -->
+            <staticText>
+                <reportElement mode="Opaque" x="635" y="20" width="40" height="20" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Serv.]]></text>
+            </staticText>
+            
+            <!-- Total (presupuesto) -->
+            <staticText>
+                <reportElement mode="Opaque" x="675" y="20" width="45" height="20" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="6" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Total]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="20">
+            <!-- COD O.E. -->
+            <textField isStretchWithOverflow="true">
+                <reportElement stretchType="ElementGroupHeight" x="0" y="0" width="45" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{oe}]]></textFieldExpression>
+            </textField>
+            
+            <!-- COD A.E. -->
+            <textField isStretchWithOverflow="true">
+                <reportElement stretchType="ElementGroupHeight" x="45" y="0" width="45" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ae}]]></textFieldExpression>
+            </textField>
+            
+            <!-- COD A.O. -->
+            <textField isStretchWithOverflow="true">
+                <reportElement stretchType="ElementGroupHeight" x="90" y="0" width="45" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ao}]]></textFieldExpression>
+            </textField>
+            
+            <!-- Actividad operativa -->
+            <textField isStretchWithOverflow="true">
+                <reportElement stretchType="ElementGroupHeight" x="135" y="0" width="160" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement verticalAlignment="Middle">
+                    <font size="7"/>
+                    <paragraph leftIndent="2" rightIndent="2"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{d_ao}]]></textFieldExpression>
+            </textField>
+            
+            <!-- Unidad de medida -->
+            <textField isStretchWithOverflow="true">
+                <reportElement stretchType="ElementGroupHeight" x="295" y="0" width="80" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{mu}]]></textFieldExpression>
+            </textField>
+            
+            <!-- I -->
+            <textField isStretchWithOverflow="true" pattern="#,##0.00">
+                <reportElement stretchType="ElementGroupHeight" x="375" y="0" width="35" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="7"/>
+                    <paragraph rightIndent="2"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{i}]]></textFieldExpression>
+            </textField>
+            
+            <!-- II -->
+            <textField isStretchWithOverflow="true" pattern="#,##0.00">
+                <reportElement stretchType="ElementGroupHeight" x="410" y="0" width="35" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="7"/>
+                    <paragraph rightIndent="2"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ii}]]></textFieldExpression>
+            </textField>
+            
+            <!-- III -->
+            <textField isStretchWithOverflow="true" pattern="#,##0.00">
+                <reportElement stretchType="ElementGroupHeight" x="445" y="0" width="35" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="7"/>
+                    <paragraph rightIndent="2"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{iii}]]></textFieldExpression>
+            </textField>
+            
+            <!-- IV -->
+            <textField isStretchWithOverflow="true" pattern="#,##0.00">
+                <reportElement stretchType="ElementGroupHeight" x="480" y="0" width="35" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="7"/>
+                    <paragraph rightIndent="2"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{iv}]]></textFieldExpression>
+            </textField>
+            
+            <!-- Total (meta) -->
+            <textField isStretchWithOverflow="true" pattern="#,##0.00">
+                <reportElement stretchType="ElementGroupHeight" x="515" y="0" width="40" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="7"/>
+                    <paragraph rightIndent="2"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tm}]]></textFieldExpression>
+            </textField>
+            
+            <!-- Rem. -->
+            <textField isStretchWithOverflow="true" pattern="#,##0.00">
+                <reportElement stretchType="ElementGroupHeight" x="555" y="0" width="40" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="7"/>
+                    <paragraph rightIndent="2"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{rem}]]></textFieldExpression>
+            </textField>
+            
+            <!-- Bie. -->
+            <textField isStretchWithOverflow="true" pattern="#,##0.00">
+                <reportElement stretchType="ElementGroupHeight" x="595" y="0" width="40" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="7"/>
+                    <paragraph rightIndent="2"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{bie}]]></textFieldExpression>
+            </textField>
+            
+            <!-- Serv. -->
+            <textField isStretchWithOverflow="true" pattern="#,##0.00">
+                <reportElement stretchType="ElementGroupHeight" x="635" y="0" width="40" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="7"/>
+                    <paragraph rightIndent="2"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{serv}]]></textFieldExpression>
+            </textField>
+            
+            <!-- Total (presupuesto) -->
+            <textField isStretchWithOverflow="true" pattern="#,##0.00">
+                <reportElement stretchType="ElementGroupHeight" x="675" y="0" width="45" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="7"/>
+                    <paragraph rightIndent="2"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tp}]]></textFieldExpression>
+            </textField>
+            
+            <!-- Detalle de la actividad -->
+            <textField isStretchWithOverflow="true">
+                <reportElement stretchType="ElementGroupHeight" x="720" y="0" width="86" height="20"/>
+                <box>
+                    <pen lineWidth="0.5" lineColor="#000000"/>
+                </box>
+                <textElement verticalAlignment="Middle">
+                    <font size="7"/>
+                    <paragraph leftIndent="2" rightIndent="2"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{d_ao}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+</jasperReport>
