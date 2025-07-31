@@ -31,7 +31,7 @@
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="807" height="66" forecolor="#00529B" backcolor="#00529B" uuid="b80d68d5-ee5c-47fa-a483-566e19a697fb"/>
 				<staticText>
-					<reportElement x="0" y="0" width="807" height="66" forecolor="#FFFFFF" uuid="02296f47-2901-4a30-a73b-96263a96224d"/>
+					<reportElement x="0" y="0" width="675" height="66" forecolor="#FFFFFF" uuid="02296f47-2901-4a30-a73b-96263a96224d"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="DejaVu Sans" size="30" isBold="true"/>
 					</textElement>
