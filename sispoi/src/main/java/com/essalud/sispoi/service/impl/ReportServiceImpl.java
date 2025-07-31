@@ -113,7 +113,7 @@ public class ReportServiceImpl implements IReportService{
             map.put("bie", item.getBie() != null ? item.getBie().doubleValue() : 0.0);  // BIE
             map.put("serv", item.getServ() != null ? item.getServ().doubleValue() : 0.0); // SERV
             map.put("tp", item.getTO() != null ? item.getTO().doubleValue() : 0.0);    // Total Presupuesto
-            map.put("d_ao", item.getDa()); // Campo adicional que aparece en el jrxml
+            map.put("c_ao", item.getDa()); // Campo adicional que aparece en el jrxml
             return map;
         }).collect(Collectors.toList());
 
@@ -228,7 +228,7 @@ public class ReportServiceImpl implements IReportService{
             map.put("bie", item.getBie() != null ? item.getBie().doubleValue() : 0.0);  // BIE
             map.put("serv", item.getServ() != null ? item.getServ().doubleValue() : 0.0); // SERV
             map.put("tp", item.getTO() != null ? item.getTO().doubleValue() : 0.0);    // Total Presupuesto
-            map.put("d_ao", item.getDa()); // Campo adicional que aparece en el jrxml
+            map.put("c_ao", item.getDa()); // Campo adicional que aparece en el jrxml
             return map;
         }).collect(Collectors.toList());
 
@@ -358,7 +358,7 @@ public class ReportServiceImpl implements IReportService{
             map.put("bie", item.getBie() != null ? item.getBie().doubleValue() : 0.0);  // BIE
             map.put("serv", item.getServ() != null ? item.getServ().doubleValue() : 0.0); // SERV
             map.put("tp", item.getTO() != null ? item.getTO().doubleValue() : 0.0);    // Total Presupuesto
-            map.put("d_ao", item.getDa()); // Campo adicional que aparece en el jrxml
+            map.put("c_ao", item.getDa()); // Campo adicional que aparece en el jrxml
             return map;
         }).collect(Collectors.toList());
 
@@ -479,7 +479,7 @@ public class ReportServiceImpl implements IReportService{
             map.put("bie", item.getBie() != null ? item.getBie().doubleValue() : 0.0);  // BIE
             map.put("serv", item.getServ() != null ? item.getServ().doubleValue() : 0.0); // SERV
             map.put("tp", item.getTO() != null ? item.getTO().doubleValue() : 0.0);    // Total Presupuesto
-            map.put("d_ao", item.getDa()); // Campo adicional que aparece en el jrxml
+            map.put("c_ao", item.getDa()); // Campo adicional que aparece en el jrxml
             return map;
         }).collect(Collectors.toList());
 
@@ -586,7 +586,7 @@ public class ReportServiceImpl implements IReportService{
             map.put("bie", item.getBie() != null ? item.getBie().doubleValue() : 0.0);  // BIE
             map.put("serv", item.getServ() != null ? item.getServ().doubleValue() : 0.0); // SERV
             map.put("tp", item.getTO() != null ? item.getTO().doubleValue() : 0.0);    // Total Presupuesto
-            map.put("d_ao", item.getDa()); // Campo adicional que aparece en el jrxml
+            map.put("c_ao", item.getDa()); // Campo adicional que aparece en el jrxml
             return map;
         }).collect(Collectors.toList());
 
@@ -708,7 +708,7 @@ public class ReportServiceImpl implements IReportService{
             map.put("bie", item.getBie() != null ? item.getBie().doubleValue() : 0.0);  // BIE
             map.put("serv", item.getServ() != null ? item.getServ().doubleValue() : 0.0); // SERV
             map.put("tp", item.getTO() != null ? item.getTO().doubleValue() : 0.0);    // Total Presupuesto
-            map.put("d_ao", item.getDa()); // Campo adicional que aparece en el jrxml
+            map.put("c_ao", item.getDa()); // Campo adicional que aparece en el jrxml
             return map;
         }).collect(Collectors.toList());
 
