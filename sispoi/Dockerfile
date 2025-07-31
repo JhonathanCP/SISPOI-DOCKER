@@ -13,10 +13,16 @@ WORKDIR /app
 
 # Instala fuentes Arial y configura fontconfig
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends fontconfig fonts-liberation fonts-dejavu && \
-    fc-cache -fv && \
-    fc-list | grep -i liberation && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y --no-install-recommends \
+    fontconfig \
+    fonts-liberation \
+    fonts-dejavu \
+    ttf-mscorefonts-installer \
+    && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
+    && apt-get install -y --no-install-recommends ttf-mscorefonts-installer \
+    && fc-cache -fv \
+    && fc-list | grep -i arial \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /build/target/*.jar app.jar
 
