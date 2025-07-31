@@ -11,25 +11,14 @@ RUN mvn -B clean package -DskipTests        \
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 
-# Instala fuentes Arial y configura fontconfig
+# Copia fuentes Arial desde resources e instala fontconfig
+COPY src/main/resources/fonts/*.ttf /usr/share/fonts/truetype/arial/
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     fontconfig \
-    fonts-liberation \
-    fonts-dejavu \
-    wget \
-    unzip \
-    && mkdir -p /usr/share/fonts/truetype/msttcorefonts \
-    && cd /tmp \
-    && wget -q https://github.com/corefonts/corefonts/raw/master/arial.ttf \
-    && wget -q https://github.com/corefonts/corefonts/raw/master/arialbd.ttf \
-    && wget -q https://github.com/corefonts/corefonts/raw/master/ariali.ttf \
-    && wget -q https://github.com/corefonts/corefonts/raw/master/arialbi.ttf \
-    && mv *.ttf /usr/share/fonts/truetype/msttcorefonts/ \
     && fc-cache -fv \
     && fc-list | grep -i arial \
-    && apt-get remove -y wget unzip \
-    && rm -rf /var/lib/apt/lists/* /tmp/*
+    && rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /build/target/*.jar app.jar
 
