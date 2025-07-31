@@ -285,6 +285,10 @@
         </band>
     </pageHeader>
 
+    <columnHeader>
+        <band height="0"/>
+    </columnHeader>
+
     <detail>
         <band height="20">
             <!-- COD O.E. -->
