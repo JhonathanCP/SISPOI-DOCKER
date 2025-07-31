@@ -75,10 +75,8 @@
                 </textField>
             </frame>
         </band>
-    </title>
 
-    <pageHeader>
-        <band height="40">
+                <band height="40">
             <!-- COD O.E. -->
             <staticText>
                 <reportElement mode="Opaque" x="0" y="0" width="45" height="40" forecolor="#FFFFFF" backcolor="#00529B"/>
@@ -283,7 +281,8 @@
                 <text><![CDATA[Total]]></text>
             </staticText>
         </band>
-    </pageHeader>
+        
+    </title>
 
     <columnHeader>
         <band height="0"/>
