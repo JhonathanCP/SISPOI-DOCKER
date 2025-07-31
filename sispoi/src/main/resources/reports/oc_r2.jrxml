@@ -11,7 +11,7 @@
               rightMargin="15" 
               topMargin="15" 
               bottomMargin="15"
-              ignorePagination="true">
+              isIgnorePagination="true">
 
     <parameter name="oc" class="java.lang.String"/>
     <parameter name="anio" class="java.lang.Integer"/>

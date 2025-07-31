@@ -11,7 +11,7 @@
               rightMargin="15" 
               topMargin="15" 
               bottomMargin="15"
-              ignorePagination="true">
+              isIgnorePagination="true">
 
     <style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50"/>
     <style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18"/>
