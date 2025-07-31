@@ -100,13 +100,13 @@ public class OperationalActivity {
     }
     
     @Column(nullable = false)
-    private Float goods;
+    private Double goods;
     
     @Column(nullable = false)
-    private Float remuneration;
+    private Double remuneration;
     
     @Column(nullable = false)
-    private Float services;
+    private Double services;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_activity_family", foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY__ACTIVITY_FAMILY"))
