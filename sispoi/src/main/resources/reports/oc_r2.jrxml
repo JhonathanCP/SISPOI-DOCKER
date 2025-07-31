@@ -10,7 +10,8 @@
               leftMargin="15" 
               rightMargin="15" 
               topMargin="15" 
-              bottomMargin="15">
+              bottomMargin="15"
+              ignorePagination="true">
 
     <parameter name="oc" class="java.lang.String"/>
     <parameter name="anio" class="java.lang.Integer"/>
@@ -75,8 +76,10 @@
                 </textField>
             </frame>
         </band>
+    </title>
 
-                <band height="40">
+    <columnHeader>
+        <band height="40">
             <!-- COD O.E. -->
             <staticText>
                 <reportElement mode="Opaque" x="0" y="0" width="45" height="40" forecolor="#FFFFFF" backcolor="#00529B"/>
@@ -281,11 +284,6 @@
                 <text><![CDATA[Total]]></text>
             </staticText>
         </band>
-        
-    </title>
-
-    <columnHeader>
-        <band height="0"/>
     </columnHeader>
 
     <detail>

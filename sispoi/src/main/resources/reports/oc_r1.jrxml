@@ -10,7 +10,8 @@
               leftMargin="15" 
               rightMargin="15" 
               topMargin="15" 
-              bottomMargin="15">
+              bottomMargin="15"
+              ignorePagination="true">
 
     <style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50"/>
     <style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18"/>
@@ -83,8 +84,10 @@
                 </textField>
             </frame>
         </band>
-
-                <band height="40" splitType="Stretch">
+    </title>
+    
+    <columnHeader>
+        <band height="40" splitType="Stretch">
             <!-- Primera fila de headers agrupados -->
             <!-- Unidad de medida -->
             <staticText>
@@ -374,8 +377,7 @@
                 <text><![CDATA[Total]]></text>
             </staticText>
         </band>
-        
-    </title>
+    </columnHeader>
 
     <detail>
         <band height="20" splitType="Stretch">
