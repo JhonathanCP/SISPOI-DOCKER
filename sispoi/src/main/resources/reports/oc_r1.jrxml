@@ -85,7 +85,7 @@
         </band>
     </title>
     
-    <columnHeader>
+    <pageHeader>
         <band height="40" splitType="Stretch">
             <!-- Primera fila de headers agrupados -->
             <!-- Unidad de medida -->
@@ -376,7 +376,7 @@
                 <text><![CDATA[Total]]></text>
             </staticText>
         </band>
-    </columnHeader>
+    </pageHeader>
 
     <detail>
         <band height="20" splitType="Stretch">
