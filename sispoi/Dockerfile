@@ -17,12 +17,19 @@ RUN apt-get update && \
     fontconfig \
     fonts-liberation \
     fonts-dejavu \
-    ttf-mscorefonts-installer \
-    && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
-    && apt-get install -y --no-install-recommends ttf-mscorefonts-installer \
+    wget \
+    unzip \
+    && mkdir -p /usr/share/fonts/truetype/msttcorefonts \
+    && cd /tmp \
+    && wget -q https://github.com/corefonts/corefonts/raw/master/arial.ttf \
+    && wget -q https://github.com/corefonts/corefonts/raw/master/arialbd.ttf \
+    && wget -q https://github.com/corefonts/corefonts/raw/master/ariali.ttf \
+    && wget -q https://github.com/corefonts/corefonts/raw/master/arialbi.ttf \
+    && mv *.ttf /usr/share/fonts/truetype/msttcorefonts/ \
     && fc-cache -fv \
     && fc-list | grep -i arial \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get remove -y wget unzip \
+    && rm -rf /var/lib/apt/lists/* /tmp/*
 
 COPY --from=build /build/target/*.jar app.jar
 
