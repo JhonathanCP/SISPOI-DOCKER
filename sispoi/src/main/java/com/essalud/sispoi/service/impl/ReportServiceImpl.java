@@ -92,7 +92,7 @@ public class ReportServiceImpl implements IReportService{
             // Mapear campos según la plantilla Jasper (campos esperados por el .jrxml)
             map.put("oe", item.getCodOe()); // COD O.E.
             map.put("d_oe", item.getOe());  // Objetivo estratégico
-            map.put("ae", item.getCodAe()); // COD A.E.
+            map.put("ae", item.getCodOe()+ "." + item.getCodAe()); // COD A.E.
             map.put("d_ae", item.getAe());  // Acción estratégica
             map.put("cg", item.getCodCg()); // COD C.G.
             map.put("d_cg", item.getCg());  // Categoría genérica
@@ -239,7 +239,7 @@ public class ReportServiceImpl implements IReportService{
             // Mapear campos según la plantilla Jasper (campos esperados por el .jrxml)
             map.put("oe", item.getCodOe()); // COD O.E.
             map.put("d_oe", item.getOe());  // Objetivo estratégico
-            map.put("ae", item.getCodAe()); // COD A.E.
+            map.put("ae", item.getCodOe()+ "." + item.getCodAe()); // COD A.E.
             map.put("d_ae", item.getAe());  // Acción estratégica
             map.put("cg", item.getCodCg()); // COD C.G.
             map.put("d_cg", item.getCg());  // Categoría genérica
@@ -400,7 +400,7 @@ public class ReportServiceImpl implements IReportService{
             // Mapear campos según la plantilla Jasper (campos esperados por el .jrxml)
             map.put("oe", item.getCodOe()); // COD O.E.
             map.put("d_oe", item.getOe());  // Objetivo estratégico
-            map.put("ae", item.getCodAe()); // COD A.E.
+            map.put("ae", item.getCodOe()+ "." + item.getCodAe()); // COD A.E.
             map.put("d_ae", item.getAe());  // Acción estratégica
             map.put("cg", item.getCodCg()); // COD C.G.
             map.put("d_cg", item.getCg());  // Categoría genérica
@@ -559,7 +559,7 @@ public class ReportServiceImpl implements IReportService{
             Map<String, Object> map = new HashMap<>();
             // Mapear campos según la plantilla Jasper (campos esperados por el .jrxml)
             map.put("oe", item.getCodOe()); // COD O.E.
-            map.put("ae", item.getCodAe()); // COD A.E.
+            map.put("ae", item.getCodOe()+ "." + item.getCodAe()); // COD A.E.
             map.put("ao", item.getCodAo()); // COD A.O.
             map.put("d_ao", item.getAo());  // Actividad operativa
             map.put("mu", item.getMu());    // Meta
@@ -697,7 +697,7 @@ public class ReportServiceImpl implements IReportService{
             Map<String, Object> map = new HashMap<>();
             // Mapear campos según la plantilla Jasper (campos esperados por el .jrxml)
             map.put("oe", item.getCodOe()); // COD O.E.
-            map.put("ae", item.getCodAe()); // COD A.E.
+            map.put("ae", item.getCodOe()+ "." + item.getCodAe()); // COD A.E.
             map.put("ao", item.getCodAo()); // COD A.O.
             map.put("d_ao", item.getAo());  // Actividad operativa
             map.put("mu", item.getMu());    // Meta
@@ -850,7 +850,7 @@ public class ReportServiceImpl implements IReportService{
             Map<String, Object> map = new HashMap<>();
             // Mapear campos según la plantilla OC-R2 (campos esperados por el .jrxml)
             map.put("oe", item.getCodOe()); // COD O.E.
-            map.put("ae", item.getCodAe()); // COD A.E.
+            map.put("ae", item.getCodOe()+ "." + item.getCodAe()); // COD A.E.
             map.put("ao", item.getCodAo()); // COD A.O.
             map.put("d_ao", item.getAo());  // Actividad operativa
             map.put("mu", item.getMu());    // Meta
