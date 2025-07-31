@@ -11,6 +11,12 @@ RUN mvn -B clean package -DskipTests        \
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 
+# Instala fuentes Arial y configura fontconfig
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends fontconfig ttf-mscorefonts-installer && \
+    fc-cache -fv && \
+    rm -rf /var/lib/apt/lists/*
+
 COPY --from=build /build/target/*.jar app.jar
 
 EXPOSE 8081
