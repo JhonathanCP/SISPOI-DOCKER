@@ -125,9 +125,41 @@ public class ReportServiceImpl implements IReportService{
 
         // Parámetros para la plantilla
         Map<String, Object> params = new HashMap<>();
+
+        String etapa;
+        switch (modification) {
+            case 1:
+                etapa = "Formulación Inicial";
+                break;
+            case 2:
+                etapa = "Primera modificatoría";
+                break;
+            case 3:
+                etapa = "Segunda modificatoría";
+                break;
+            case 4:
+                etapa = "Tercera modificatoría";
+                break;
+            case 5:
+                etapa = "Cuarta modificatoría";
+                break;
+            case 6:
+                etapa = "Quinta modificatoría";
+                break;
+            case 7:
+                etapa = "Sexta modificatoría";
+                break;
+            case 8:
+                etapa = "Séptima modificatoría";
+                break;
+            default:
+                etapa = "Formulación Inicial";
+                break;
+        }
+        params.put("etapa", etapa);
         params.put("oc", dependency.getName());
-        params.put("anio", year);
-        
+        params.put("anio", year);        
+
         System.out.println("Parámetros Jasper: " + params);
 
         try {
@@ -240,6 +272,37 @@ public class ReportServiceImpl implements IReportService{
 
         // Parámetros para la plantilla
         Map<String, Object> params = new HashMap<>();
+        String etapa;
+        switch (modification) {
+            case 1:
+                etapa = "Formulación Inicial";
+                break;
+            case 2:
+                etapa = "Primera modificatoría";
+                break;
+            case 3:
+                etapa = "Segunda modificatoría";
+                break;
+            case 4:
+                etapa = "Tercera modificatoría";
+                break;
+            case 5:
+                etapa = "Cuarta modificatoría";
+                break;
+            case 6:
+                etapa = "Quinta modificatoría";
+                break;
+            case 7:
+                etapa = "Sexta modificatoría";
+                break;
+            case 8:
+                etapa = "Séptima modificatoría";
+                break;
+            default:
+                etapa = "Formulación Inicial";
+                break;
+        }
+        params.put("etapa", etapa);
         params.put("oc", dependency.getName());
         params.put("anio", year);
         
@@ -370,6 +433,37 @@ public class ReportServiceImpl implements IReportService{
 
         // Parámetros para la plantilla
         Map<String, Object> params = new HashMap<>();
+        String etapa;
+        switch (modification) {
+            case 1:
+                etapa = "Formulación Inicial";
+                break;
+            case 2:
+                etapa = "Primera modificatoría";
+                break;
+            case 3:
+                etapa = "Segunda modificatoría";
+                break;
+            case 4:
+                etapa = "Tercera modificatoría";
+                break;
+            case 5:
+                etapa = "Cuarta modificatoría";
+                break;
+            case 6:
+                etapa = "Quinta modificatoría";
+                break;
+            case 7:
+                etapa = "Sexta modificatoría";
+                break;
+            case 8:
+                etapa = "Séptima modificatoría";
+                break;
+            default:
+                etapa = "Formulación Inicial";
+                break;
+        }
+        params.put("etapa", etapa);
         params.put("oc", dependency.getName());
         params.put("anio", year);
         
@@ -491,6 +585,37 @@ public class ReportServiceImpl implements IReportService{
 
         // Parámetros para la plantilla
         Map<String, Object> params = new HashMap<>();
+        String etapa;
+        switch (modification) {
+            case 1:
+                etapa = "Formulación Inicial";
+                break;
+            case 2:
+                etapa = "Primera modificatoría";
+                break;
+            case 3:
+                etapa = "Segunda modificatoría";
+                break;
+            case 4:
+                etapa = "Tercera modificatoría";
+                break;
+            case 5:
+                etapa = "Cuarta modificatoría";
+                break;
+            case 6:
+                etapa = "Quinta modificatoría";
+                break;
+            case 7:
+                etapa = "Sexta modificatoría";
+                break;
+            case 8:
+                etapa = "Séptima modificatoría";
+                break;
+            default:
+                etapa = "Formulación Inicial";
+                break;
+        }
+        params.put("etapa", etapa);
         params.put("oc", dependency.getName());
         params.put("anio", year);
         
@@ -598,6 +723,37 @@ public class ReportServiceImpl implements IReportService{
 
         // Parámetros para la plantilla
         Map<String, Object> params = new HashMap<>();
+        String etapa;
+        switch (modification) {
+            case 1:
+                etapa = "Formulación Inicial";
+                break;
+            case 2:
+                etapa = "Primera modificatoría";
+                break;
+            case 3:
+                etapa = "Segunda modificatoría";
+                break;
+            case 4:
+                etapa = "Tercera modificatoría";
+                break;
+            case 5:
+                etapa = "Cuarta modificatoría";
+                break;
+            case 6:
+                etapa = "Quinta modificatoría";
+                break;
+            case 7:
+                etapa = "Sexta modificatoría";
+                break;
+            case 8:
+                etapa = "Séptima modificatoría";
+                break;
+            default:
+                etapa = "Formulación Inicial";
+                break;
+        }
+        params.put("etapa", etapa);
         params.put("oc", dependency.getName());
         params.put("anio", year);
         
@@ -720,6 +876,37 @@ public class ReportServiceImpl implements IReportService{
 
         // Parámetros para la plantilla
         Map<String, Object> params = new HashMap<>();
+        String etapa;
+        switch (modification) {
+            case 1:
+                etapa = "Formulación Inicial";
+                break;
+            case 2:
+                etapa = "Primera modificatoría";
+                break;
+            case 3:
+                etapa = "Segunda modificatoría";
+                break;
+            case 4:
+                etapa = "Tercera modificatoría";
+                break;
+            case 5:
+                etapa = "Cuarta modificatoría";
+                break;
+            case 6:
+                etapa = "Quinta modificatoría";
+                break;
+            case 7:
+                etapa = "Sexta modificatoría";
+                break;
+            case 8:
+                etapa = "Séptima modificatoría";
+                break;
+            default:
+                etapa = "Formulación Inicial";
+                break;
+        }
+        params.put("etapa", etapa);
         params.put("oc", dependency.getName());
         params.put("anio", year);
         
