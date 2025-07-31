@@ -6,7 +6,7 @@
               pageWidth="842" 
               pageHeight="595" 
               orientation="Landscape" 
-              columnWidth="807" 
+              columnWidth="812" 
               leftMargin="15" 
               rightMargin="15" 
               topMargin="15" 
@@ -50,9 +50,9 @@
         <band height="107" splitType="Stretch">
             <!-- Header azul principal -->
             <frame>
-                <reportElement x="0" y="0" width="807" height="66" mode="Opaque" forecolor="#00529B" backcolor="#00529B"/>
+                <reportElement x="0" y="0" width="812" height="66" mode="Opaque" forecolor="#00529B" backcolor="#00529B"/>
                 <staticText>
-                    <reportElement x="0" y="0" width="645" height="66" forecolor="#FFFFFF"/>
+                    <reportElement x="0" y="0" width="650" height="66" forecolor="#FFFFFF"/>
                     <textElement verticalAlignment="Bottom">
                         <font fontName="DejaVu Sans" size="30" isBold="true"/>
                     </textElement>
@@ -60,14 +60,14 @@
                 </staticText>
                 <!-- Logo en esquina inferior derecha -->
                 <image scaleImage="RetainShape" hAlign="Right" vAlign="Bottom">
-                    <reportElement x="680" y="30" width="120" height="30"/>
+                    <reportElement x="685" y="30" width="120" height="30"/>
                     <imageExpression><![CDATA["classpath:assets/logo_essalud_white.png"]]></imageExpression>
                 </image>
             </frame>
             
             <!-- Header azul secundario -->
             <frame>
-                <reportElement x="0" y="70" width="807" height="31" mode="Opaque" forecolor="#FFFFFF" backcolor="#4A7AC7"/>
+                <reportElement x="0" y="70" width="812" height="31" mode="Opaque" forecolor="#FFFFFF" backcolor="#4A7AC7"/>
                 <textField>
                     <reportElement x="657" y="10" width="144" height="20" forecolor="#FFFFFF"/>
                     <textElement textAlignment="Right">
@@ -153,7 +153,7 @@
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font size="6" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Categoría genérica]]></text>
+                <text><![CDATA[Centro gestor]]></text>
             </staticText>
             
             <staticText>
@@ -197,7 +197,7 @@
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font size="6" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Fuente de financiamiento]]></text>
+                <text><![CDATA[Fondo Financiero]]></text>
             </staticText>
             
             <staticText>
@@ -258,7 +258,7 @@
             </staticText>
             
             <staticText>
-                <reportElement x="739" y="0" width="68" height="40" mode="Opaque" forecolor="#FFFFFF" backcolor="#00529B"/>
+                <reportElement x="739" y="0" width="73" height="40" mode="Opaque" forecolor="#FFFFFF" backcolor="#00529B"/>
                 <box>
                     <pen lineWidth="0.5" lineColor="#000000"/>
                 </box>
@@ -715,7 +715,7 @@
             
             <!-- Detalle de la actividad -->
             <textField textAdjust="StretchHeight">
-                <reportElement x="739" y="0" width="68" height="20" stretchType="RelativeToTallestObject"/>
+                <reportElement x="739" y="0" width="73" height="20" stretchType="RelativeToTallestObject"/>
                 <box>
                     <pen lineWidth="0.5" lineColor="#000000"/>
                 </box>
@@ -723,7 +723,7 @@
                     <font size="7"/>
                     <paragraph leftIndent="2" rightIndent="2"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{d_ao}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{c_ao}]]></textFieldExpression>
             </textField>
         </band>
     </detail>

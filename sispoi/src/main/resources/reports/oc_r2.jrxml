@@ -6,7 +6,7 @@
               pageWidth="842" 
               pageHeight="595" 
               orientation="Landscape" 
-              columnWidth="807" 
+              columnWidth="812" 
               leftMargin="15" 
               rightMargin="15" 
               topMargin="15" 
@@ -476,7 +476,7 @@
                     <font size="7"/>
                     <paragraph leftIndent="2" rightIndent="2"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{d_ao}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{c_ao}]]></textFieldExpression>
             </textField>
         </band>
     </detail>
