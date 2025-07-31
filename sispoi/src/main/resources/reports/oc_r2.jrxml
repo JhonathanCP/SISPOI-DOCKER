@@ -31,28 +31,21 @@
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="807" height="66" forecolor="#00529B" backcolor="#00529B" uuid="b80d68d5-ee5c-47fa-a483-566e19a697fb"/>
 				<staticText>
-					<reportElement x="0" y="0" width="645" height="66" forecolor="#FFFFFF" uuid="02296f47-2901-4a30-a73b-96263a96224d"/>
+					<reportElement x="0" y="0" width="807" height="66" forecolor="#FFFFFF" uuid="02296f47-2901-4a30-a73b-96263a96224d"/>
 					<textElement verticalAlignment="Bottom">
 						<font fontName="DejaVu Sans" size="30" isBold="true"/>
 					</textElement>
 					<text><![CDATA[Detalle de actividades]]></text>
 				</staticText>
 				<image scaleImage="RetainShape" hAlign="Right" vAlign="Bottom">
-					<reportElement x="680" y="30" width="120" height="30" uuid="f26c40c9-080d-4825-9787-b726e1b410cc"/>
+					<reportElement x="675" y="36" width="132" height="30" uuid="f26c40c9-080d-4825-9787-b726e1b410cc"/>
 					<imageExpression><![CDATA["classpath:assets/logo_essalud_white.png"]]></imageExpression>
 				</image>
 			</frame>
 			<frame>
 				<reportElement mode="Opaque" x="0" y="70" width="807" height="31" forecolor="#FFFFFF" backcolor="#4A7AC7" uuid="2e2285f7-a4f9-465f-b9c2-68bbf1c55c60"/>
 				<textField>
-					<reportElement x="657" y="10" width="144" height="20" forecolor="#FFFFFF" uuid="5a5936f7-d448-4e37-b89c-06d74fc23268"/>
-					<textElement textAlignment="Right">
-						<font size="12"/>
-					</textElement>
-					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="0" y="0" width="500" height="31" forecolor="#FFFFFF" uuid="6839f522-37aa-4591-96cd-cc975ebbf01e"/>
+					<reportElement x="0" y="0" width="807" height="31" forecolor="#FFFFFF" uuid="6839f522-37aa-4591-96cd-cc975ebbf01e"/>
 					<textElement verticalAlignment="Middle">
 						<font size="12"/>
 					</textElement>
