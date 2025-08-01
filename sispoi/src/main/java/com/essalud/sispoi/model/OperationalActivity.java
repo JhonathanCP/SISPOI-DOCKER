@@ -49,7 +49,7 @@ public class OperationalActivity {
     private Boolean active;
 
     @ManyToOne
-    @JoinColumn(name = "id_strategic_action", nullable = false, foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_STRATEGIC_ACTION"))
+    @JoinColumn(name = "id_strategic_action", foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_STRATEGIC_ACTION"))
     private StrategicAction strategicAction;
 
     @ManyToOne
