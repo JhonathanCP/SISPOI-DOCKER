@@ -57,7 +57,6 @@ public class OperationalActivityDTO {
 
     @JsonManagedReference("operationalActivity-executedGoals")
     private List<ExecutedGoalDTO> executedGoals;
-
     
     @JsonManagedReference("operationalActivity-monthlyGoals")
     private List<MonthlyGoalDTO> monthlyGoals;
@@ -70,13 +69,13 @@ public class OperationalActivityDTO {
     private LocalDateTime createTime;
     
     @NotNull
-    private Float goods;
+    private Double goods;
     
     @NotNull
-    private Float remuneration;
+    private Double remuneration;
     
     @NotNull
-    private Float services;
+    private Double services;
 
     private ActivityFamilyDTO activityFamily;
 
