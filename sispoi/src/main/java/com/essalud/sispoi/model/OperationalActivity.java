@@ -33,7 +33,7 @@ public class OperationalActivity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idOperationalActivity;
 
-    @Column(length = 16, nullable = false)
+    @Column(length = 16)
     private String sapCode;
 
     @Column(length = 3)
