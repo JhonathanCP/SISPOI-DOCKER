@@ -68,6 +68,10 @@ public class Formulation {
     @Max(5)
     private Integer quarter;
 
+    @Min(1)
+    @Max(12)
+    private Integer month;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_formulation_type", foreignKey = @ForeignKey(name = "FK_FORMULATION_FORMULATION_TYPE"))
     private FormulationType formulationType;

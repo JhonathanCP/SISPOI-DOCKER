@@ -62,7 +62,7 @@ public class ActivityDetail {
     private String measurementUnit;
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_formulation_type", foreignKey = @ForeignKey(name = "FK_FORMULATION_FORMULATION_TYPE"))
+    @JoinColumn(name = "id_formulation_type", foreignKey = @ForeignKey(name = "FK_ACTIVITY_DETAI_FORMULATION_TYPE"))
     private FormulationType formulationType;
 
     @ManyToOne(fetch = FetchType.EAGER)

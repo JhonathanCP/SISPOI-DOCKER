@@ -114,4 +114,19 @@ public class FormulationController {
         return new ResponseEntity<>(dtoResponse, HttpStatus.CREATED); // Use CREATED status for new resource
     }
 
+    @PostMapping("/add-modificationpe/{idOriginalFormulation}/{newMonth}")
+    public ResponseEntity<FormulationDTO> addModificationPe(
+            @PathVariable("idOriginalFormulation") Integer idOriginalFormulation,
+            @PathVariable("newMonth") Integer newMonth) {
+
+        // Validate month input (1 to 12)
+        if (newMonth < 1 || newMonth > 12) {
+            throw new IllegalArgumentException("Month must be between 1 and 12.");
+        }
+
+        Formulation newFormulation = service.addModificationPe(idOriginalFormulation, newMonth);
+        FormulationDTO dtoResponse = mapper.map(newFormulation, FormulationDTO.class);
+        return new ResponseEntity<>(dtoResponse, HttpStatus.CREATED); // Use CREATED status for new resource
+    }       
+
 }

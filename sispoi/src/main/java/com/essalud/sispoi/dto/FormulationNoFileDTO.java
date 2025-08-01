@@ -33,6 +33,8 @@ public class FormulationNoFileDTO {
 
     private Integer quarter;
 
+    private Integer month;
+
     private FormulationTypeDTO formulationType;
 
     private Double budget;

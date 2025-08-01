@@ -13,4 +13,6 @@ public interface IFormulationService extends _ICRUD<Formulation, Integer> {
 
     Formulation addModification(Integer originalFormulationId, Integer newQuarter);
 
+    Formulation addModificationPe(Integer originalFormulationId, Integer newMonth);
+
 }
