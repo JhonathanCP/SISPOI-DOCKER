@@ -21,7 +21,6 @@ public class OperationalActivityDTO {
     @EqualsAndHashCode.Include
     private Integer idOperationalActivity;
 
-    @NotNull
     @Size(max = 16)
     private String sapCode;
 
@@ -38,19 +37,14 @@ public class OperationalActivityDTO {
     
     private Boolean active = true;
 
-    @NotNull
     private StrategicActionDTO strategicAction;
 
-    @NotNull
     private FormulationNoFileDTO formulation;
 
-    @NotNull
     private FinancialFundDTO financialFund;
 
-    @NotNull
     private ManagementCenterDTO managementCenter;
 
-    @NotNull
     private CostCenterDTO costCenter;
 
     private MeasurementTypeDTO measurementType;
@@ -71,7 +65,6 @@ public class OperationalActivityDTO {
     @JsonManagedReference("operationalActivity-executedMonthlyGoals")
     private List<ExecutedMonthlyGoalDTO> executedMonthlyGoals;
 
-    @NotNull
     private PriorityDTO priority;
 
     private LocalDateTime createTime;
