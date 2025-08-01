@@ -57,15 +57,15 @@ public class OperationalActivity {
     private Formulation formulation;
 
     @ManyToOne
-    @JoinColumn(name = "id_financial_fund", nullable = false, foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_FINANCIAL_FUND"))
+    @JoinColumn(name = "id_financial_fund", foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_FINANCIAL_FUND"))
     private FinancialFund financialFund;
 
     @ManyToOne
-    @JoinColumn(name = "id_management_center", nullable = false, foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_MANAGEMENT_CENTER"))
+    @JoinColumn(name = "id_management_center", foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_MANAGEMENT_CENTER"))
     private ManagementCenter managementCenter;
 
     @ManyToOne
-    @JoinColumn(name = "id_cost_center", nullable = false, foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_COST_CENTER"))
+    @JoinColumn(name = "id_cost_center", foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_COST_CENTER"))
     private CostCenter costCenter;
 
     @ManyToOne
@@ -88,7 +88,7 @@ public class OperationalActivity {
     private List<ExecutedMonthlyGoal> executedMonthlyGoals;
 
     @ManyToOne
-    @JoinColumn(name = "id_priority", nullable = false, foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_PRIORITY"))
+    @JoinColumn(name = "id_priority", foreignKey = @ForeignKey(name = "FK_OPERATIONAL_ACTIVITY_PRIORITY"))
     private Priority priority;
 
     @Column(nullable = false, columnDefinition = "timestamp default now()")
